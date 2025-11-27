@@ -1,6 +1,6 @@
-package ar.com.techlab.clase002.practica;
+package ar.com.techlab.clase002;
 
-public class MainPractica002 {
+public class Main {
     public static void main(String[] args){
         // todo lo que sigue de esto es codigo a ejecutar
         // convencion de nombres:
