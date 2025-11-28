@@ -25,7 +25,7 @@ public class MenuAgregar {
             System.out.println("Elija la opción correspondiente: ");
             System.out.println("(1) Agregar Bebida");
             System.out.println("(2) Agregar Comida");
-            System.out.println("(3) Agregar Lista Productos");
+            System.out.println("(3) Agregar Lista Productos Basicos");
             System.out.println("(4) Volver");
 
             salidaMenu = sc.nextInt();
@@ -34,19 +34,19 @@ public class MenuAgregar {
                 case 1:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("Agregaremos una bebidaa a la lista");
-                    ListaProductos.agregarBebida( listaProductos);
+                    ListaProductos.agregarBebida(listaProductos);
 
                     break;
                 case 2:
                     System.out.println("Seleccionó " + salidaMenu);
-                    System.out.println("BAgregaremos una comida a la lista");
-                    ListaProductos.agregarComida( listaProductos);
+                    System.out.println("Agregaremos una comida a la lista");
+                    ListaProductos.agregarComida(listaProductos);
 
                     break;
                 case 3:
                     System.out.println("Seleccionó " + salidaMenu);
-                    System.out.println("IActualizaremos un producto de la lista.");
-                    ListaProductos.agregarProducto( listaProductos, "Bebida");
+                    System.out.println("Agregaremos una lista de productos básicos.");
+                    ListaProductos.agregarProducto( listaProductos);
                     break;
                 case 4:
                     System.out.println("Volvemos al Menú Principal");

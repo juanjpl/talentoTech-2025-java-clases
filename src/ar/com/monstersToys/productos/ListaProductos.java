@@ -1,7 +1,9 @@
 package ar.com.monstersToys.productos;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class ListaProductos {
 
@@ -84,7 +86,7 @@ public class ListaProductos {
     }
 
 
-    public static void agregarProducto(ArrayList<Producto> listaProductos , String cateogria) {
+    public static void agregarProducto(ArrayList<Producto> listaProductos ) {
         // TODO Auto-generated method stub
 
         //categoria nuevoProducto= new categoria<>();
@@ -134,9 +136,68 @@ public class ListaProductos {
 
     }
 
+    public static ArrayList<Object> buscarProductoByID(ArrayList<Producto> listaProductos, String ID) {
+        // TODO Auto-generated method stub
+
+        ArrayList<Object> producto_encontrado_ID = new ArrayList<>(2);
+
+        System.out.println("Ingrese el ID del producto a actualizar:");
+        Scanner sc = new Scanner(System.in);
+        String productoBuscado = sc.next();
+        System.out.println("Vamos a buscar: " + productoBuscado);
+
+        for(int i =0; i<listaProductos.size();i++) {
+            if(listaProductos.get(i).getID().toLowerCase().contains(productoBuscado)) {
+                producto_encontrado_ID.add(0,listaProductos.get(i));
+                producto_encontrado_ID.add(1,i);
+            }
+        }
+
+       return producto_encontrado_ID;
+
+
+    }
+
     public static void actualizarProducto(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
-        System.out.println("actualizando  producto......");
+        System.out.println("Ingrese el ID del producto a actualizar: ");
+        Scanner sc = new Scanner(System.in);
+        String id_producto_a_actualizar = sc.next();
+
+        ArrayList<Object> producto_lista_actualizar = buscarProductoByID(listaProductos,id_producto_a_actualizar);
+
+        System.out.println(producto_lista_actualizar);
+
+
+        int  indice_encontrado = (int) producto_lista_actualizar.getLast();
+        @SuppressWarnings("unchecked") // Suprime el warning de advertencia de tipos
+        ArrayList<Producto> lista_producto_encontrado = (ArrayList<Producto>) producto_lista_actualizar.getFirst();
+
+/*
+        if(producto_lista_actualizar.isEmpty()) {
+            System.out.println("No existe el producto con el identificador: " + producto_a_actualizar);
+        }else{
+            System.out.println("Se encontró el producto: "  + producto_lista_actualizar);
+        }
+        System.out.println("Ingrese el nombre del producto a actualizar: ");
+        String nombre_a_actualizar= sc.nextLine();
+
+        producto_lista_encontrado.setNombre(nombre_a_actualizar);
+        System.out.println(producto_lista_actualizar.get(1));
+
+
+        System.out.println("Ingrese el stock del producto a actualizar: ");
+        int stock_a_actualizar= sc.nextInt();
+        System.out.println("Ingrese el precio del producto a actualizar: ");
+        int precio_a_actualizar= sc.nextInt();
+        */
+
+       // listaProductos.set((Integer) producto_lista_actualizar.get(1),producto_lista_actualizar.getFirst());
+
+
+
+
+
     }
 
 

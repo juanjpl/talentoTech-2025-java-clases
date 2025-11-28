@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Producto {
     static int cantidadProductos =0;
 
-    private UUID ID = UUID.randomUUID();
+    private final UUID ID = UUID.randomUUID();
     private String nombre;
     private double precio; // Ahora es privado
     private int cantidadEnStock;
