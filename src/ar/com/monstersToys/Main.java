@@ -17,7 +17,7 @@ public class Main {
 
 
         // 2) Mostramos el menu de opciones
-        MenuInicio.imprimirMenuPrincipal( listaProductos);
+        MenuInicio.imprimirMenuPrincipal(listaProductos);
 
 
     }

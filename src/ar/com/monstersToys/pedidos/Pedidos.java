@@ -1,12 +1,15 @@
 package ar.com.monstersToys.pedidos;
 
+import ar.com.monstersToys.clientes.Clientes;
+import ar.com.monstersToys.productos.Producto;
+
 import java.util.ArrayList;
 
-public class Pedido {
+public class Pedidos {
 
     static int cantidadPedidos = 0;
-    private ArrayList<ProductoDos> productos;
-    private Cliente cliente;
+    private ArrayList<Producto> productos;
+    private Clientes cliente;
 
 
 
@@ -15,19 +18,19 @@ public class Pedido {
     }
 
     // Constructor
-    public Pedido(Cliente cliente) {
+    public Pedidos(Clientes cliente) {
         this.cliente = cliente;
         this.productos = new ArrayList<>();
         cantidadPedidos++;
     }
 
-    void agregarProducto(ProductoDos p) {
+    void agregarProducto(Producto p) {
         productos.add(p);
     }
 
     public double calcularTotal() {
         double total = 0;
-        for (ProductoDos p : productos) {
+        for (Producto p : productos) {
             total += p.getPrecio() * p.getCantidadEnStock();
         }
         return total;

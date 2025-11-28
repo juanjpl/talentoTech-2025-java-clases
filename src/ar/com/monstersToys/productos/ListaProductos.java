@@ -53,10 +53,10 @@ public class ListaProductos {
         // TODO Auto-generated method stub
 
         Scanner sc = new Scanner(System.in);
-        String nombre;
+        String nombre="Nuevo Producto";
         double precio = 0;
         int stock = 0;
-        String fechaVencimiento;
+        String fechaVencimiento="00/00/0000";
 
 
         System.out.println("Ingrese el nombre del nuevo producto:");
@@ -89,13 +89,20 @@ public class ListaProductos {
 
         //categoria nuevoProducto= new categoria<>();
 
-        Bebida teBlanco = new Bebida("Te Blanco", 1500, 2000, 150);
-        Bebida teNegro = new Bebida("Te Negro", 2500, 3000, 2000);
-        Bebida teRojo = new Bebida("Te Rojo", 3500, 4000, 250);
+        Bebida cafe_americano = new Bebida("Americano", 1500, 2000, 250);
+        Bebida cafe_expresso = new Bebida("Expresso", 2500, 3000, 150);
+        Bebida cafe_frappe = new Bebida("Frappe", 3500, 4000, 200);
 
-        listaProductos.add(teBlanco);
-        listaProductos.add(teNegro);
-        listaProductos.add(teRojo);
+        Comida croissant = new Comida("Croissant", 1500, 2000, "10/01/2026");
+        Comida pain_au_chocolat = new Comida("Pain au Chocolat", 2500, 3000, "20/01/2026");
+        Comida croissant_nutella = new Comida("Croissant relleno de Nutella", 3500, 4000, "30/01/2026");
+
+        listaProductos.add(cafe_americano);
+        listaProductos.add(cafe_expresso);
+        listaProductos.add(cafe_frappe);
+        listaProductos.add(croissant_nutella);
+        listaProductos.add(croissant);
+        listaProductos.add(pain_au_chocolat);
 
         System.out.println("Se agregó el producto correctamente.");
 
@@ -106,13 +113,12 @@ public class ListaProductos {
         // TODO Auto-generated method stub
 
         ArrayList<Producto> listaProductosEncontrados = new ArrayList<Producto>();
-        String productoBuscado;
 
         System.out.println("Ingrese el producto a buscar:");
 
 
         Scanner sc = new Scanner(System.in);
-        productoBuscado = sc.next();
+        String productoBuscado = sc.next();
 
         System.out.println("Vamos a buscar: " + productoBuscado);
 
