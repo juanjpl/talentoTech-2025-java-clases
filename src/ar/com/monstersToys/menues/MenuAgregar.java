@@ -1,21 +1,21 @@
 package ar.com.monstersToys.menues;
 
-import ar.com.monstersToys.productos.ProductoDos;
-import ar.com.monstersToys.productos.Productos;
+import ar.com.monstersToys.productos.Producto;
+import ar.com.monstersToys.productos.ListaProductos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuAgregar {
 
-    public static void buscarActualizarProducto(ArrayList<ProductoDos> listaProductos) {
+    public static void buscarActualizarProducto(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
 
     }
 
 
 
-    public static void imprimirMenuAgregar(ArrayList<ProductoDos> listaProductos) {
+    public static void imprimirMenuAgregar(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
         int salidaMenu = 0;
 
@@ -34,19 +34,19 @@ public class MenuAgregar {
                 case 1:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("Agregaremos una bebidaa a la lista");
-                    Productos.agregarBebida( listaProductos);
+                    ListaProductos.agregarBebida( listaProductos);
 
                     break;
                 case 2:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("BAgregaremos una comida a la lista");
-                    Productos.agregarComida( listaProductos);
+                    ListaProductos.agregarComida( listaProductos);
 
                     break;
                 case 3:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("IActualizaremos un producto de la lista.");
-                    Productos.agregarProducto( listaProductos, "Bebida");
+                    ListaProductos.agregarProducto( listaProductos, "Bebida");
                     break;
                 case 4:
                     System.out.println("Volvemos al Menú Principal");

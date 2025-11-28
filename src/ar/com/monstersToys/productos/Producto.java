@@ -2,7 +2,7 @@ package ar.com.monstersToys.productos;
 
 import java.util.UUID;
 
-public class ProductoDos {
+public class Producto {
     static int cantidadProductos =0;
 
     private UUID ID = UUID.randomUUID();
@@ -14,18 +14,18 @@ public class ProductoDos {
 
 
     // Constructor con parámetros
-    public ProductoDos(String nombre, double precio, int cantidadEnStock) {
+    public Producto(String nombre, double precio, int cantidadEnStock) {
         this.nombre = nombre;
         this.precio = precio;
         this.cantidadEnStock = cantidadEnStock;
         cantidadProductos++;
     }
 
-    public ProductoDos() {
+    public Producto() {
         // TODO Auto-generated constructor stub
     }
 
-    public static ProductoDos buscarProductoPorNombre(String string) {
+    public static Producto buscarProductoPorNombre(String string) {
         // TODO Auto-generated method stub
         return null;
     }

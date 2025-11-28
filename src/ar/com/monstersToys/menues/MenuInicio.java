@@ -1,14 +1,14 @@
 package ar.com.monstersToys.menues;
 
-import ar.com.monstersToys.productos.ProductoDos;
-import ar.com.monstersToys.productos.Productos;
+import ar.com.monstersToys.productos.Producto;
+import ar.com.monstersToys.productos.ListaProductos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuInicio {
 
-    public static void imprimirMenuPrincipal(ArrayList<ProductoDos> listaProductos) {
+    public static void imprimirMenuPrincipal(ArrayList<Producto> listaProductos) {
 
         Scanner sc = new Scanner(System.in);
         int salidaMenu = 0;
@@ -36,7 +36,7 @@ public class MenuInicio {
                 case 2:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("Imprimiremos todos los productos de la lista: ");
-                    Productos.listarProductos(listaProductos);
+                    ListaProductos.listarProductos(listaProductos);
                     break;
                 case 3:
                     System.out.println("Seleccionó " + salidaMenu);
@@ -44,7 +44,7 @@ public class MenuInicio {
                     break;
                 case 4:
                     System.out.println("Seleccionó " + salidaMenu);
-                    Productos.eliminarProducto(listaProductos);
+                    ListaProductos.eliminarProducto(listaProductos);
                     break;
                 case 5:
                     System.out.println("Seleccionó " + salidaMenu);

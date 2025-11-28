@@ -3,11 +3,11 @@ package ar.com.monstersToys.productos;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Productos {
+public class ListaProductos {
 
-    public static void listarProductos(ArrayList<ProductoDos> listaProductos) {
+    public static void listarProductos(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
-        for(ProductoDos p : listaProductos) {
+        for(Producto p : listaProductos) {
             System.out.println(p.getNombre());
             System.out.println(p.getCantidadEnStock());
             System.out.println(p.getPrecio());
@@ -15,7 +15,7 @@ public class Productos {
         }
     }
 
-    public static void agregarBebida(ArrayList<ProductoDos> listaProductos) {
+    public static void agregarBebida(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
 
         Scanner sc = new Scanner(System.in);
@@ -49,7 +49,7 @@ public class Productos {
 
     }
 
-    public static void agregarComida(ArrayList<ProductoDos> listaProductos)  {
+    public static void agregarComida(ArrayList<Producto> listaProductos)  {
         // TODO Auto-generated method stub
 
         Scanner sc = new Scanner(System.in);
@@ -84,7 +84,7 @@ public class Productos {
     }
 
 
-    public static void agregarProducto(ArrayList<ProductoDos> listaProductos , String cateogria) {
+    public static void agregarProducto(ArrayList<Producto> listaProductos , String cateogria) {
         // TODO Auto-generated method stub
 
         //categoria nuevoProducto= new categoria<>();
@@ -102,10 +102,10 @@ public class Productos {
 
     }
 
-    public static void buscarProducto(ArrayList<ProductoDos> listaProductos) {
+    public static void buscarProducto(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
 
-        ArrayList<ProductoDos> listaProductosEncontrados = new ArrayList<ProductoDos>();
+        ArrayList<Producto> listaProductosEncontrados = new ArrayList<Producto>();
         String productoBuscado;
 
         System.out.println("Ingrese el producto a buscar:");
@@ -116,7 +116,7 @@ public class Productos {
 
         System.out.println("Vamos a buscar: " + productoBuscado);
 
-        for(ProductoDos prod : listaProductos) {
+        for(Producto prod : listaProductos) {
 
             if(prod.getNombre().toLowerCase().contains(productoBuscado.toLowerCase())) {
                 listaProductosEncontrados.add(prod);
@@ -128,7 +128,7 @@ public class Productos {
 
     }
 
-    public static void actualizarProducto(ArrayList<ProductoDos> listaProductos) {
+    public static void actualizarProducto(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
         System.out.println("actualizando  producto......");
     }
@@ -136,14 +136,14 @@ public class Productos {
 
 
 
-    public static void eliminarProducto(ArrayList<ProductoDos> listaProductos) {
+    public static void eliminarProducto(ArrayList<Producto> listaProductos) {
 
         // TODO Auto-generated method stub
         Scanner sc = new Scanner(System.in);
         String eliminarProducto="";
         int indiceEliminar =0;
 
-        ProductoDos productoEncontrado = new ProductoDos();
+        Producto productoEncontrado = new Producto();
 
         System.out.println("Eliminaremos un producto");
         System.out.println("Ingrese el nombre o Id a eliminar:");
@@ -153,7 +153,7 @@ public class Productos {
         System.out.println(eliminarProducto);
 
 
-        for(ProductoDos prod : listaProductos) {
+        for(Producto prod : listaProductos) {
 
 
             if(prod.getNombre().toLowerCase().contains(eliminarProducto) == true) {

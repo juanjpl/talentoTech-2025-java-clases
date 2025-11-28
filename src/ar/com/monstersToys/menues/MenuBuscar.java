@@ -1,20 +1,20 @@
 package ar.com.monstersToys.menues;
 
-import ar.com.monstersToys.productos.ProductoDos;
-import ar.com.monstersToys.productos.Productos;
+import ar.com.monstersToys.productos.Producto;
+import ar.com.monstersToys.productos.ListaProductos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuBuscar {
-    public static void buscarActualizarProducto(ArrayList<ProductoDos> listaProductos) {
+    public static void buscarActualizarProducto(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
 
     }
 
 
 
-    public static void imprimirMenuBuscar(ArrayList<ProductoDos> listaProductos) {
+    public static void imprimirMenuBuscar(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
         int salidaMenu = 0;
 
@@ -32,13 +32,13 @@ public class MenuBuscar {
                 case 1:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("Buscaremos un producto de la lista");
-                    Productos.buscarProducto( listaProductos);
+                    ListaProductos.buscarProducto( listaProductos);
 
                     break;
                 case 2:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("IActualizaremos un producto de la lista.");
-                    Productos.actualizarProducto( listaProductos);
+                    ListaProductos.actualizarProducto( listaProductos);
                     break;
                 case 3:
                     System.out.println("Volvemos al Menú Principal");

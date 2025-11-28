@@ -1,6 +1,6 @@
 package ar.com.monstersToys.productos;
 
-public class Bebida extends ProductoDos implements IDescontable {
+public class Bebida extends Producto implements IDescontable {
     private double volumenEnLitros=0;
     private String categoria;
 
