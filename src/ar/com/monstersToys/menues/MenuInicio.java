@@ -18,11 +18,12 @@ public class MenuInicio {
             System.out.println("Seleccionó la opción a ejecutar");
             System.out.println("(1) Agregar Productos");
             System.out.println("(2) Listar Productos");
-            System.out.println("(3) Buscar/Actualizar Productos");
-            System.out.println("(4) Eliminar Productos");
-            System.out.println("(5) Crear un Pedido");
-            System.out.println("(6) Listar Pedidos");
-            System.out.println("(7) Salir");
+            System.out.println("(3) Buscar Productos");
+            System.out.println("(4) Actualizar Productos");
+            System.out.println("(5) Eliminar Productos");
+            System.out.println("(6) Crear un Pedido");
+            System.out.println("(7) Listar Pedidos");
+            System.out.println("(8) Salir");
 
             salidaMenu = sc.nextInt();
 
@@ -44,15 +45,21 @@ public class MenuInicio {
                     break;
                 case 4:
                     System.out.println("Seleccionó " + salidaMenu);
-                    ListaProductos.eliminarProducto(listaProductos);
+                    ListaProductos.actualizarProducto(listaProductos);
                     break;
                 case 5:
                     System.out.println("Seleccionó " + salidaMenu);
+                    ListaProductos.eliminarProducto(listaProductos);
                     break;
                 case 6:
                     System.out.println("Seleccionó " + salidaMenu);
+                    System.out.println("Creando un Pedido");
                     break;
                 case 7:
+                    System.out.println("Seleccionó " + salidaMenu);
+                    System.out.println("Lista de productos del Pedido");
+                    break;
+                case 8:
                     System.out.println("Gracias por usar nuestro sistema");
                     break;
                 default:

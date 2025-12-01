@@ -9,43 +9,62 @@ public class ListaProductos {
 
     public static void listarProductos(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
-        for(Producto p : listaProductos) {
-            System.out.println(p.getNombre());
-            System.out.println(p.getCantidadEnStock());
-            System.out.println(p.getPrecio());
-            System.out.println(p.getID());
+        if (listaProductos.isEmpty()) {
+            System.out.printf("==================================================%n");
+            System.out.printf("                Lista Vacia %n");
+            System.out.printf("==================================================%n");
+        }else{
+            System.out.printf("===========================================================================================================%n");
+            System.out.printf("                             Lista Productos Almacen %n");
+            System.out.printf("===========================================================================================================%n");
+            System.out.printf ( "| %-36s | %-30s | %-10s | %-10s |%n","ID", "NOMBRE", "STOCK", "PRECIO" );
+            System.out.printf("-----------------------------------------------------------------------------------------------------------%n" );
+            for(Producto p : listaProductos) {
+
+
+                System.out.printf ( "| %-36s | %-30s | %-10d | %-2f |%n",p.getID(), p.getNombre(), p.getCantidadEnStock(), p.getPrecio() );
+               /*
+                System.out.println(p.getNombre());
+                System.out.println(p.getCantidadEnStock());
+                System.out.println(p.getPrecio());
+                System.out.println(p.getID());
+
+                */
+            }
         }
+
     }
 
     public static void agregarBebida(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
 
         Scanner sc = new Scanner(System.in);
-        String nombre="";
-        int precio = 0;
-        int stock = 0;
-        int volumen = 0;
+        String nombre_a_agregar;
+        int precio_a_agregar = 0;
+        int stock_a_agregar = 0;
+        int volumen_a_agregar = 0;
 
 
         System.out.println("Ingrese el nombre del nuevo producto:");
-        nombre = sc.next();
+        nombre_a_agregar = sc.nextLine();
 
         System.out.println("Ingrese el precio del nuevo producto:");
-        precio = sc.nextInt();
+        precio_a_agregar = sc.nextInt();
 
-        System.out.println("Ingrese el nombre del nuevo producto:");
-        stock = sc.nextInt();
+        System.out.println("Ingrese el stock del nuevo producto:");
+        stock_a_agregar = sc.nextInt();
 
-        System.out.println("Ingrese el nombre del nuevo producto:");
-        volumen = sc.nextInt();
-
-
-        Bebida nuevoProducto = new Bebida(nombre, precio, stock, volumen);
+        System.out.println("Ingrese el volumen del nuevo producto:");
+        volumen_a_agregar = sc.nextInt();
 
 
+        Bebida nuevoProducto = new Bebida(nombre_a_agregar, precio_a_agregar, stock_a_agregar, volumen_a_agregar);
+
+        System.out.println("El nuevo producto agregado es:");
         listaProductos.add(nuevoProducto);
 
         System.out.println("Se agregó el producto correctamente.");
+
 
 
 
@@ -62,16 +81,16 @@ public class ListaProductos {
 
 
         System.out.println("Ingrese el nombre del nuevo producto:");
-        nombre = sc.next();
+        nombre = sc.nextLine();
 
         System.out.println("Ingrese el precio del nuevo producto:");
         precio = sc.nextDouble();
 
-        System.out.println("Ingrese el nombre del nuevo producto:");
+        System.out.println("Ingrese el stock del nuevo producto:");
         stock = sc.nextInt();
 
-        System.out.println("Ingrese el nombre del nuevo producto:");
-        fechaVencimiento = sc.next();
+        System.out.println("Ingrese el vencimiento del nuevo producto:");
+        fechaVencimiento = sc.nextLine();
 
 
         Comida nuevoProducto = new Comida(nombre, precio, stock, fechaVencimiento);
@@ -116,22 +135,27 @@ public class ListaProductos {
 
         ArrayList<Producto> listaProductosEncontrados = new ArrayList<Producto>();
 
-        System.out.println("Ingrese el producto a buscar:");
+        System.out.println("Ingrese el ID del producto a buscar o su nombre:");
 
 
         Scanner sc = new Scanner(System.in);
-        String productoBuscado = sc.next();
+        String productoBuscado = sc.nextLine();
 
         System.out.println("Vamos a buscar: " + productoBuscado);
 
         for(Producto prod : listaProductos) {
 
-            if(prod.getNombre().toLowerCase().contains(productoBuscado.toLowerCase())) {
+            if(prod.getNombre().equalsIgnoreCase(productoBuscado) || prod.getID().equalsIgnoreCase(productoBuscado)) {
                 listaProductosEncontrados.add(prod);
             }
         }
 
-        listaProductosEncontrados.forEach(System.out::println);
+
+        if(listaProductosEncontrados.isEmpty()) {
+            System.out.println("No existe el producto buscado.");
+        }else  {
+            System.out.println(listaProductosEncontrados.getFirst());
+        }
 
 
     }
@@ -160,9 +184,10 @@ public class ListaProductos {
 
     public static void actualizarProducto(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
+
         System.out.println("Ingrese el ID del producto a actualizar: ");
         Scanner sc = new Scanner(System.in);
-        String id_producto_a_actualizar = sc.next();
+        String id_producto_a_actualizar = sc.nextLine();
 
         ArrayList<Object> producto_lista_actualizar = buscarProductoByID(listaProductos,id_producto_a_actualizar);
 
