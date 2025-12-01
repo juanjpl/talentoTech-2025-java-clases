@@ -23,13 +23,7 @@ public class ListaProductos {
 
 
                 System.out.printf ( "| %-36s | %-30s | %-10d | %-2f |%n",p.getID(), p.getNombre(), p.getCantidadEnStock(), p.getPrecio() );
-               /*
-                System.out.println(p.getNombre());
-                System.out.println(p.getCantidadEnStock());
-                System.out.println(p.getPrecio());
-                System.out.println(p.getID());
 
-                */
             }
         }
 
@@ -165,25 +159,25 @@ public class ListaProductos {
 
         ArrayList<Object> producto_encontrado_ID = new ArrayList<>(2);
 
-        System.out.println("Ingrese el ID del producto a actualizar:");
-        Scanner sc = new Scanner(System.in);
-        String productoBuscado = sc.next();
-        System.out.println("Vamos a buscar: " + productoBuscado);
+        System.out.println("Vamos a buscar el producto con ID: " + ID);
 
         for(int i =0; i<listaProductos.size();i++) {
-            if(listaProductos.get(i).getID().toLowerCase().contains(productoBuscado)) {
+            if(listaProductos.get(i).getID().equalsIgnoreCase(ID)) {
                 producto_encontrado_ID.add(0,listaProductos.get(i));
                 producto_encontrado_ID.add(1,i);
             }
         }
+if(producto_encontrado_ID.isEmpty()) {
+    return null;
+}else{
+    return producto_encontrado_ID;
+}
 
-       return producto_encontrado_ID;
 
 
     }
 
     public static void actualizarProducto(ArrayList<Producto> listaProductos) {
-        // TODO Auto-generated method stub
 
         System.out.println("Ingrese el ID del producto a actualizar: ");
         Scanner sc = new Scanner(System.in);
@@ -191,37 +185,81 @@ public class ListaProductos {
 
         ArrayList<Object> producto_lista_actualizar = buscarProductoByID(listaProductos,id_producto_a_actualizar);
 
-        System.out.println(producto_lista_actualizar);
-
-
         int  indice_encontrado = (int) producto_lista_actualizar.getLast();
-        @SuppressWarnings("unchecked") // Suprime el warning de advertencia de tipos
-        ArrayList<Producto> lista_producto_encontrado = (ArrayList<Producto>) producto_lista_actualizar.getFirst();
+        Producto lista_producto_encontrado = (Producto) producto_lista_actualizar.getFirst();
 
-/*
         if(producto_lista_actualizar.isEmpty()) {
-            System.out.println("No existe el producto con el identificador: " + producto_a_actualizar);
-        }else{
-            System.out.println("Se encontró el producto: "  + producto_lista_actualizar);
+            System.out.println("No se ha encontrado ningun producto con ese ID");
+        }else {
+            System.out.println("Se ha encontrado el producto.");
+
+            System.out.printf("-----------------------------------------------------------------------------------------------------------%n");
+            System.out.printf("| %-36s | %-30s | %-10s | %-10s |%n", "ID", "NOMBRE", "STOCK", "PRECIO");
+            System.out.printf("-----------------------------------------------------------------------------------------------------------%n");
+            System.out.printf("| %-36s | %-30s | %-10d | %-2f |%n", lista_producto_encontrado.getID(), lista_producto_encontrado.getNombre(), lista_producto_encontrado.getCantidadEnStock(), lista_producto_encontrado.getPrecio());
+
+
+            System.out.println("Ingrese el nombre del producto a actualizar: ");
+            String nombre_a_actualizar = sc.nextLine();
+            System.out.println("Ingrese el stock del producto a actualizar: ");
+            int stock_a_actualizar = Integer.parseInt(sc.nextLine());
+            System.out.println("Ingrese el precio del producto a actualizar: ");
+            Double precio_a_actualizar = Double.parseDouble(sc.nextLine());
+
+
+
+            System.out.printf("===========================================================================================================%n");
+            System.out.printf("                             Actualizaciòn de Producto %n");
+            System.out.printf("===========================================================================================================%n");
+            System.out.println("| PRODUCTO ACTUAL |");
+            System.out.printf("-----------------------------------------------------------------------------------------------------------%n");
+            System.out.printf("| %-36s | %-30s | %-10s | %-10s |%n", "ID", "NOMBRE", "STOCK", "PRECIO");
+            System.out.printf("-----------------------------------------------------------------------------------------------------------%n");
+            System.out.printf("| %-36s | %-30s | %-10d | %-2f |%n", lista_producto_encontrado.getID(), lista_producto_encontrado.getNombre(), lista_producto_encontrado.getCantidadEnStock(), lista_producto_encontrado.getPrecio());
+
+            System.out.printf("-----------------------------------------------------------------------------------------------------------%n");
+            System.out.println("| PRODUCTO Actualizado |");
+            System.out.printf("-----------------------------------------------------------------------------------------------------------%n");
+            System.out.printf("| %-36s | %-30s | %-10s | %-10s |%n", "ID", "NOMBRE", "STOCK", "PRECIO");
+            System.out.printf("-----------------------------------------------------------------------------------------------------------%n");
+            System.out.printf("| %-36s | %-30s | %-10d | %-2f |%n", lista_producto_encontrado.getID(), nombre_a_actualizar, stock_a_actualizar, precio_a_actualizar);
+
+            System.out.println("Deseas actualizar el Producto? SI/NO");
+            String opcion = sc.nextLine();
+
+            System.out.println(opcion);
+
         }
-        System.out.println("Ingrese el nombre del producto a actualizar: ");
-        String nombre_a_actualizar= sc.nextLine();
-
-        producto_lista_encontrado.setNombre(nombre_a_actualizar);
-        System.out.println(producto_lista_actualizar.get(1));
 
 
-        System.out.println("Ingrese el stock del producto a actualizar: ");
-        int stock_a_actualizar= sc.nextInt();
-        System.out.println("Ingrese el precio del producto a actualizar: ");
-        int precio_a_actualizar= sc.nextInt();
-        */
+            /*
+            if (respuesta_actualizar.equalsIgnoreCase("SI")) {
+                System.out.println("El Producto Fuè actualizado Exitosamente!");
+            } else if (respuesta_actualizar.equalsIgnoreCase("NO")) {
+                System.out.println("El Producto No fuè actualizado.");
+            } else {
+                System.out.println("No existe la opciòn!");
 
-       // listaProductos.set((Integer) producto_lista_actualizar.get(1),producto_lista_actualizar.getFirst());
+            }
 
+            /*
+            while(respuesta_actualizar.equalsIgnoreCase("SI")) {
 
+               if (respuesta_actualizar.equalsIgnoreCase("SI")) {
+                   System.out.println("El Producto Fuè actualizado Exitosamente!");
+               } else if (respuesta_actualizar.equalsIgnoreCase("NO")) {
+                   System.out.println("El Producto No fuè actualizado.");
+               } else {
+                   System.out.println("No existe la opciòn!");
 
+               }
 
+               System.out.println("Deseas actualizar el Producto? SI/NO");
+               respuesta_actualizar = sc.nextLine().toLowerCase();
+
+           };
+
+             */
 
     }
 

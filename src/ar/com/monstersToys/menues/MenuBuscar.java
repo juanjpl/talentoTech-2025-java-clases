@@ -37,7 +37,7 @@ public class MenuBuscar {
                     break;
                 case 2:
                     System.out.println("Seleccionó " + salidaMenu);
-                    System.out.println("IActualizaremos un producto de la lista.");
+                    System.out.println("Actualizaremos un producto de la lista.");
                     ListaProductos.actualizarProducto( listaProductos);
                     break;
                 case 3:
