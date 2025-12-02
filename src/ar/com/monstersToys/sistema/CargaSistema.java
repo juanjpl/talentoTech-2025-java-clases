@@ -12,7 +12,7 @@ public class CargaSistema {
 
         String usuario = sc.nextLine();
 
-        System.out.println("Gracias " + usuario);
+        System.out.println("Gracias por elegirnos " + usuario);
         System.out.println("Ahora selecciona una opción del menú:");
 
         return usuario;

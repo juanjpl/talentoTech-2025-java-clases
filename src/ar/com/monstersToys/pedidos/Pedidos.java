@@ -1,7 +1,7 @@
 package ar.com.monstersToys.pedidos;
 
 import ar.com.monstersToys.clientes.Clientes;
-import ar.com.monstersToys.productos.Producto;
+import ar.com.monstersToys.productos.producto.Producto;
 
 import java.util.ArrayList;
 

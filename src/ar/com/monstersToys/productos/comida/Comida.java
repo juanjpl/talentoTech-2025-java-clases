@@ -1,4 +1,7 @@
-package ar.com.monstersToys.productos;
+package ar.com.monstersToys.productos.comida;
+
+import ar.com.monstersToys.productos.interfaces.IDescontable;
+import ar.com.monstersToys.productos.producto.Producto;
 
 public class Comida  extends Producto implements IDescontable {
     private String fechaVencimiento;

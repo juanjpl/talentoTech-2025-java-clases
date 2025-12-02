@@ -1,4 +1,7 @@
-package ar.com.monstersToys.productos;
+package ar.com.monstersToys.productos.bebida;
+
+import ar.com.monstersToys.productos.interfaces.IDescontable;
+import ar.com.monstersToys.productos.producto.Producto;
 
 public class Bebida extends Producto implements IDescontable {
     private double volumenEnLitros=0;
@@ -11,6 +14,7 @@ public class Bebida extends Producto implements IDescontable {
         this.categoria = "Bebida";
 
     }
+
 
     @Override
     public double calcularPrecioFinal() {

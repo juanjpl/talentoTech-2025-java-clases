@@ -1,4 +1,4 @@
-package ar.com.monstersToys.productos;
+package ar.com.monstersToys.productos.producto;
 
 import java.util.UUID;
 
@@ -19,15 +19,6 @@ public class Producto {
         this.precio = precio;
         this.cantidadEnStock = cantidadEnStock;
         cantidadProductos++;
-    }
-
-    public Producto() {
-        // TODO Auto-generated constructor stub
-    }
-
-    public static Producto buscarProductoPorNombre(String string) {
-        // TODO Auto-generated method stub
-        return null;
     }
 
     public static int getCantidadProductos() {
@@ -80,5 +71,8 @@ public class Producto {
     public double calcularPrecioFinal() {
         // TODO Auto-generated method stub
         return precio*1.21;
+    }
+
+    public void set(int indiceEncontrado, Producto productoActualizado) {
     }
 }

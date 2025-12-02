@@ -1,18 +1,14 @@
 package ar.com.monstersToys.menues;
 
-import ar.com.monstersToys.productos.Producto;
-import ar.com.monstersToys.productos.ListaProductos;
+import ar.com.monstersToys.productos.bebida.AgregarBebida;
+import ar.com.monstersToys.productos.comida.AgregarComida;
+import ar.com.monstersToys.productos.producto.AgregarProductosBasicos;
+import ar.com.monstersToys.productos.producto.Producto;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuAgregar {
-
-    public static void buscarActualizarProducto(ArrayList<Producto> listaProductos) {
-        // TODO Auto-generated method stub
-
-    }
-
 
 
     public static void imprimirMenuAgregar(ArrayList<Producto> listaProductos) {
@@ -28,25 +24,25 @@ public class MenuAgregar {
             System.out.println("(3) Agregar Lista Productos Basicos");
             System.out.println("(4) Volver");
 
-            salidaMenu = sc.nextInt();
+            salidaMenu = Integer.parseInt(sc.nextLine());
 
             switch (salidaMenu) {
                 case 1:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("Agregaremos una bebidaa a la lista");
-                    ListaProductos.agregarBebida(listaProductos);
+                    AgregarBebida.agregarBebida(listaProductos);
 
                     break;
                 case 2:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("Agregaremos una comida a la lista");
-                    ListaProductos.agregarComida(listaProductos);
+                    AgregarComida.agregarComida(listaProductos);
 
                     break;
                 case 3:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("Agregaremos una lista de productos básicos.");
-                    ListaProductos.agregarProducto( listaProductos);
+                    AgregarProductosBasicos.agregarProducto( listaProductos);
                     break;
                 case 4:
                     System.out.println("Volvemos al Menú Principal");

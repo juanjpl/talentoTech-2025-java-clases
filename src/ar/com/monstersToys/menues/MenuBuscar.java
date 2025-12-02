@@ -1,23 +1,16 @@
 package ar.com.monstersToys.menues;
 
-import ar.com.monstersToys.productos.Producto;
-import ar.com.monstersToys.productos.ListaProductos;
+import ar.com.monstersToys.productos.producto.ActualizarProducto;
+import ar.com.monstersToys.productos.producto.BuscarProducto;
+import ar.com.monstersToys.productos.producto.Producto;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuBuscar {
-    public static void buscarActualizarProducto(ArrayList<Producto> listaProductos) {
-        // TODO Auto-generated method stub
-
-    }
-
-
-
     public static void imprimirMenuBuscar(ArrayList<Producto> listaProductos) {
         // TODO Auto-generated method stub
         int salidaMenu = 0;
-
         Scanner sc = new Scanner(System.in);
 
         while(salidaMenu != 3) {
@@ -25,20 +18,19 @@ public class MenuBuscar {
             System.out.println("(1) Buscar Producto");
             System.out.println("(2) Actualizar Producto");
             System.out.println("(3) Salir");
-
-            salidaMenu = sc.nextInt();
+            salidaMenu = Integer.parseInt(sc.nextLine());
 
             switch (salidaMenu) {
                 case 1:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("Buscaremos un producto de la lista");
-                    ListaProductos.buscarProducto( listaProductos);
+                    BuscarProducto.buscarProducto( listaProductos);
 
                     break;
                 case 2:
                     System.out.println("Seleccionó " + salidaMenu);
                     System.out.println("Actualizaremos un producto de la lista.");
-                    ListaProductos.actualizarProducto( listaProductos);
+                    ActualizarProducto.actualizarProducto( listaProductos);
                     break;
                 case 3:
                     System.out.println("Volvemos al Menú Principal");
