@@ -4,34 +4,87 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EliminarProducto {
+
     public static void eliminarProducto(ArrayList<Producto> listaProductos) {
-        // TODO Auto-generated method stub
+
         Scanner sc = new Scanner(System.in);
-        String eliminarProducto = "";
-        int indiceEliminar = 0;
 
-        Producto productoEncontrado ;
+        System.out.println("Eliminaremos un producto...");
+        System.out.println("Ingrese parte del nombre o el ID completo del producto:");
+        String textoBusqueda = sc.nextLine().trim().toLowerCase();
 
-        System.out.println("Eliminaremos un producto");
-        System.out.println("Ingrese el nombre o Id a eliminar:");
-        eliminarProducto = sc.next().trim();
+        // LISTA AUXILIAR — acumula coincidencias
+        ArrayList<Producto> coincidencias = new ArrayList<>();
 
-        System.out.println("Buscaremos el producto:....");
-        System.out.println(eliminarProducto);
+        // Buscar coincidencias
+        for (Producto p : listaProductos) {
 
-        for (Producto prod : listaProductos) {
-            if (prod.getNombre().toLowerCase().contains(eliminarProducto)) {
+            boolean coincideNombre = p.getNombre().toLowerCase().contains(textoBusqueda);
+            boolean coincideID = p.getID().toLowerCase().equals(textoBusqueda);
 
-                productoEncontrado = prod;
-                System.out.println("Encontramos el producto a eliminar.");
-                indiceEliminar = listaProductos.indexOf(prod);
-                listaProductos.remove(indiceEliminar);
-
-            } else {
-                System.out.println("No encontramos el producto a eliminar.");
+            if (coincideNombre || coincideID) {
+                coincidencias.add(p);
             }
         }
 
-        System.out.println("Hemos eliminado el producto de la lista. Ahora imprimimos la lista final.");
+        // Si no hay resultados
+        if (coincidencias.isEmpty()) {
+            System.out.println("No se encontraron productos que coincidan.");
+            return;
+        }
+
+        // Mostrar coincidencias
+        System.out.println("Productos encontrados:");
+        System.out.println("-----------------------------------------------------------------------------------------------------------");
+        System.out.printf("| %-36s | %-30s | %-10s | %-10s |%n",
+                "ID", "NOMBRE", "STOCK", "PRECIO");
+        System.out.println("-----------------------------------------------------------------------------------------------------------");
+
+        for (Producto p : coincidencias) {
+            System.out.printf("| %-36s | %-30s | %-10d | %-10.2f |%n",
+                    p.getID(), p.getNombre(), p.getCantidadEnStock(), p.getPrecio());
+        }
+
+        System.out.println("-----------------------------------------------------------------------------------------------------------");
+
+        // Solicitar ID del producto a eliminar
+        System.out.println("Ingrese el ID EXACTO del producto que desea eliminar:");
+        String idEliminar = sc.nextLine().trim();
+
+        // Buscar ese ID dentro de la lista original
+        Producto productoAEliminar = null;
+        int indiceEliminar = -1;
+
+        for (int i = 0; i < listaProductos.size(); i++) {
+            if (listaProductos.get(i).getID().equals(idEliminar)) {
+                productoAEliminar = listaProductos.get(i);
+                indiceEliminar = i;
+                break;
+            }
+        }
+
+        if (productoAEliminar == null) {
+            System.out.println("El ID ingresado no corresponde a ningún producto de la lista.");
+            return;
+        }
+
+        // Mostrar datos del producto seleccionado
+        System.out.println("Seleccionaste el siguiente producto:");
+        System.out.printf("ID: %s | Nombre: %s | Stock: %d | Precio: %.2f%n",
+                productoAEliminar.getID(),
+                productoAEliminar.getNombre(),
+                productoAEliminar.getCantidadEnStock(),
+                productoAEliminar.getPrecio());
+
+        // Confirmación
+        System.out.println("¿Desea eliminarlo? (SI/NO)");
+        String confirmacion = sc.nextLine().trim();
+
+        if (confirmacion.equalsIgnoreCase("SI")) {
+            listaProductos.remove(indiceEliminar);
+            System.out.println("Producto eliminado correctamente.");
+        } else {
+            System.out.println("El producto NO fue eliminado.");
+        }
     }
 }
